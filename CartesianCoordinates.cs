@@ -7,6 +7,14 @@ namespace PadawansTask9
     {
         public static List<Point> GetNeighbors(Point point, int range, params Point[] points)
         {
+            if (range <= 0)
+            {
+                throw new ArgumentException();
+            }
+            if (points == null)
+            {
+                throw new ArgumentNullException();
+            }
             var result = new List<Point>();
             var enumerator = points.GetEnumerator();
             foreach (var item in points)
@@ -17,7 +25,6 @@ namespace PadawansTask9
                 }
             }
             return result;
-
         }
     }
 }
